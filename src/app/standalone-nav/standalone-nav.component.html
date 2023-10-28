@@ -1,0 +1,17 @@
+<header class="navbar">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <div class="menu-toggle" (click)="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <nav class="nav" [ngClass]="{ 'active': isMenuOpen }">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#">Inicio</a></li>
+            <li class="nav-item"><a href="#">Acerca de</a></li>
+            <li class="nav-item"><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+</header>

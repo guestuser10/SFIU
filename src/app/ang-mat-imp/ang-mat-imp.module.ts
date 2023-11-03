@@ -8,7 +8,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [],
   imports: [
@@ -21,6 +24,9 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatExpansionModule,
     MatInputModule,
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
   ],
   exports:[
     MatToolbarModule, 
@@ -30,6 +36,9 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatExpansionModule,
     MatInputModule,
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
   ],
 })
 export class AngMatImpModule { 

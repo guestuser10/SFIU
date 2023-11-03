@@ -1,0 +1,55 @@
+<mat-toolbar color="white">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon >menu</mat-icon>
+        </button>
+        <h1>titulo</h1>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container >
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Buscar</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <h3>Buscar Obrero</h3>
+                    <mat-form-field>
+                        <input matInput placeholder="Buscar Obrero">
+                        <button mat-button matSuffix>
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <br>
+                    <h3>Buscar miembros</h3>
+                    <mat-form-field>
+                        <input matInput placeholder="Buscar miembro">
+                        <button mat-button matSuffix>
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <br>
+
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Añadir miembros</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a mat-list-item href="#">añadir nuevo obrero</a>
+                    <a mat-list-item href="#">añadir nuevo miembro</a>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <a mat-list-item href="#">si</a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh;"></div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

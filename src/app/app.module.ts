@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavMenuModule } from './nav-menu/nav-menu.module';
 import { MainMenuModule } from './main-menu/main-menu.module';
+import { PerfilModule } from './perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MainMenuModule } from './main-menu/main-menu.module';
     BrowserAnimationsModule,
     NavMenuModule,
     MainMenuModule,
+    PerfilModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

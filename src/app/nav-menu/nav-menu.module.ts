@@ -4,7 +4,6 @@ import { NavMenuComponentComponent } from './nav-menu-component/nav-menu-compone
 import { AngMatImpModule } from '../ang-mat-imp/ang-mat-imp.module';
 
 
-
 @NgModule({
   declarations: [
     NavMenuComponentComponent

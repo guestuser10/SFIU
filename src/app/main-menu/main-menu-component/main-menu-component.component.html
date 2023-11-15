@@ -1,4 +1,6 @@
+<app-nav-menu-component></app-nav-menu-component>
 <mat-card class="card-container">
+    <h3 class="achetres">PENDIENTES</h3>
     <mat-card-content>
       <mat-expansion-panel *ngFor="let problema of problemas" class="panel">
             <mat-expansion-panel-header>
@@ -9,7 +11,7 @@
             <mat-form-field class="form-field-container">
                 <div class="form-field-container">
                     <input matInput [(ngModel)]="problema.descripcion" placeholder="Descripción" readonly>
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="redirigirAPerfil(problema.id_creyente)">
                         <mat-icon>arrow_forward</mat-icon>
                     </button>
                 </div>

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PerfilComponentComponent } from './perfil-component/perfil-component.component';
 import { AngMatImpModule } from '../ang-mat-imp/ang-mat-imp.module';
 
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,6 +12,7 @@ import { AngMatImpModule } from '../ang-mat-imp/ang-mat-imp.module';
   imports: [
     CommonModule,
     AngMatImpModule,
+    HttpClientModule,
   ],
   exports:[
     PerfilComponentComponent,

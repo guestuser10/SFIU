@@ -3,7 +3,7 @@
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon >menu</mat-icon>
         </button>
-        <h1>titulo</h1>
+        <h1 (click)="navigateToMenu()">UNIVERSAL</h1>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container >
@@ -45,7 +45,7 @@
                 </mat-expansion-panel>
             </mat-accordion>
 
-            <a mat-list-item href="#">si</a>
+            <a mat-list-item href="#" style="margin-top: 2VW;">si</a>
 
         </mat-nav-list>
     </mat-sidenav>

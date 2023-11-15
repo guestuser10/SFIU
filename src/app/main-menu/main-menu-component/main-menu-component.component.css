@@ -1,8 +1,8 @@
-/* styles.css */
 .card-container {
     background-color: #2d557e;
     width: 80%;
     margin: 0 auto;
+    margin-top: 1vh;
     padding: 5px;
 }
 
@@ -15,4 +15,13 @@
     align-items: center;
     width: 95%;
     margin: 0 auto;
+}
+.estadoinf{
+    margin: auto 1vw;
+    font-weight: bold ;
+}
+.achetres{
+    margin: 1vh auto;
+    font-weight: bold;
+    color: aliceblue;
 }

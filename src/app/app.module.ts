@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavMenuModule } from './nav-menu/nav-menu.module';
 import { MainMenuModule } from './main-menu/main-menu.module';
 import { PerfilModule } from './perfil/perfil.module';
+import { AngMatImpModule } from './ang-mat-imp/ang-mat-imp.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { PerfilModule } from './perfil/perfil.module';
     NavMenuModule,
     MainMenuModule,
     PerfilModule,
+    AngMatImpModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

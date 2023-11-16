@@ -1,4 +1,4 @@
-<mat-toolbar color="white">
+<mat-toolbar color="white" >
     <mat-toolbar-row>
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon >menu</mat-icon>
@@ -6,8 +6,9 @@
         <h1 (click)="navigateToMenu()">UNIVERSAL</h1>
     </mat-toolbar-row>
 </mat-toolbar>
-<mat-sidenav-container >
-    <mat-sidenav #sidenav>
+    
+<mat-sidenav-container>
+    <mat-sidenav #sidenav style="float: left;">
         <mat-nav-list>
 
             <mat-accordion>
@@ -50,6 +51,8 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <div style="height: 88vh;"></div>
+        <div style="height: 88vh;">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

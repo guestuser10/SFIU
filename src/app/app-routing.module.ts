@@ -6,6 +6,7 @@ import { PerfilComponentComponent } from './perfil/perfil-component/perfil-compo
 const routes: Routes = [
   { path: 'menu', component: MainMenuComponentComponent },
   { path: 'perfil/:id_creyente', component: PerfilComponentComponent},
+  {path: '', loadChildren:() =>import('./nav-menu/nav-menu.module').then((m) => m.NavMenuModule)}
 ];
 
 @NgModule({

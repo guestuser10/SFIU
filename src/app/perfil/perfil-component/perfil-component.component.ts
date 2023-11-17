@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-perfil-component',
   templateUrl: './perfil-component.component.html',
@@ -8,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class PerfilComponentComponent implements OnInit{
   problemas: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private AR:ActivatedRoute,) { }
 
   ngOnInit(): void {
     // Supongamos que el id del perfil es 1
-    const perfilId = 1;
+    var perfilId: string ;
 
+    perfilId = this.AR.snapshot.params['id_creyente'];
+    
+    
     this.http.get<any>(`http://127.0.0.1:8000/perfil/${perfilId}`).subscribe(
       response => {
         // Verifica si la respuesta contiene la clave "Problemas"
@@ -41,7 +45,7 @@ export class PerfilComponentComponent implements OnInit{
         console.error('Error al obtener datos del perfil:', error);
       }
     );
-    console.log(this.problemas)
+    //console.log(this.problemas)
   }
       
   verDetalle(id: number) {

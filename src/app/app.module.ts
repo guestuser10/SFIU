@@ -9,6 +9,7 @@ import { MainMenuModule } from './main-menu/main-menu.module';
 import { PerfilModule } from './perfil/perfil.module';
 import { AngMatImpModule } from './ang-mat-imp/ang-mat-imp.module';
 import { LoginModule } from './login/login.module';
+import { BusquedaModule } from './busqueda/busqueda.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginModule } from './login/login.module';
     PerfilModule,
     AngMatImpModule,
     LoginModule,
+    BusquedaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

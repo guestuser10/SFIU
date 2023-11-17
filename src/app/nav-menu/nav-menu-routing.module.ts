@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavMenuComponentComponent } from './nav-menu-component/nav-menu-component.component';
 import { MainMenuComponentComponent } from '../main-menu/main-menu-component/main-menu-component.component';
 import { PerfilComponentComponent } from '../perfil/perfil-component/perfil-component.component';
+import { BusquedaMiembroComponentComponent } from '../busqueda/busqueda-miembro-component/busqueda-miembro-component.component';
 
 const routes: Routes = [
   {path:'',
@@ -10,6 +11,7 @@ const routes: Routes = [
   children:[
     {path: 'menu', component: MainMenuComponentComponent},
     {path: 'perfil/:id_creyente', component: PerfilComponentComponent},
+    {path: 'miembro/:busqueda', component: BusquedaMiembroComponentComponent},
     {path: '', redirectTo: 'login', pathMatch: 'full'},
   ],
 }

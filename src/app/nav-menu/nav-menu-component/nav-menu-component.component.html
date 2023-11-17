@@ -26,8 +26,8 @@
                     <br>
                     <h3>Buscar miembros</h3>
                     <mat-form-field>
-                        <input matInput placeholder="Buscar miembro">
-                        <button mat-button matSuffix>
+                        <input matInput [(ngModel)]="valor_miembro" placeholder="Buscar miembro">
+                        <button mat-button matSuffix (click)="searchmiembro(valor_miembro)">
                             <mat-icon>search</mat-icon>
                         </button>
                     </mat-form-field>

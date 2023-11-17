@@ -9,7 +9,15 @@ import { Router } from '@angular/router';
 export class NavMenuComponentComponent {
   constructor(private router: Router) { }
 
+  valor_miembro: string ='';
+
   navigateToMenu() {
     this.router.navigate(['/menu']);
   }
+
+  searchmiembro(valor_miembro: string) {
+    const ruta_busqueda_miembro = `/miembro/${this.valor_miembro}`;
+    this.router.navigate([ruta_busqueda_miembro]);
+  }
+
 }

@@ -4,6 +4,7 @@ import { NavMenuComponentComponent } from './nav-menu-component/nav-menu-compone
 import { MainMenuComponentComponent } from '../main-menu/main-menu-component/main-menu-component.component';
 import { PerfilComponentComponent } from '../perfil/perfil-component/perfil-component.component';
 import { BusquedaMiembroComponentComponent } from '../busqueda/busqueda-miembro-component/busqueda-miembro-component.component';
+import { BusquedaObreroComponentComponent } from '../busqueda/busqueda-obrero-component/busqueda-obrero-component.component';
 
 const routes: Routes = [
   {path:'',
@@ -12,6 +13,7 @@ const routes: Routes = [
     {path: 'menu', component: MainMenuComponentComponent},
     {path: 'perfil/:id_creyente', component: PerfilComponentComponent},
     {path: 'miembro/:busqueda', component: BusquedaMiembroComponentComponent},
+    {path: 'obrero/:busqueda', component: BusquedaObreroComponentComponent},
     {path: '', redirectTo: 'login', pathMatch: 'full'},
   ],
 }

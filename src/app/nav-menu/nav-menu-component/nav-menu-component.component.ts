@@ -10,6 +10,7 @@ export class NavMenuComponentComponent {
   constructor(private router: Router) { }
 
   valor_miembro: string ='';
+  valor_obrero: string ='';
 
   navigateToMenu() {
     this.router.navigate(['/menu']);
@@ -20,4 +21,8 @@ export class NavMenuComponentComponent {
     this.router.navigate([ruta_busqueda_miembro]);
   }
 
+  searchobrero(valor_obrero: string) {
+    const ruta_busqueda_miembro = `/obrero/${this.valor_miembro}`;
+    this.router.navigate([ruta_busqueda_miembro]);
+  }
 }

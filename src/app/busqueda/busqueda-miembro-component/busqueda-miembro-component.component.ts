@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngMatImpModule } from 'src/app/ang-mat-imp/ang-mat-imp.module';
 // Define una interfaz para representar la estructura del JSON esperado del servidor
 interface MiembroResponse {
@@ -15,7 +15,7 @@ interface MiembroResponse {
 export class BusquedaMiembroComponentComponent implements OnInit {
   miembros: any[] = []; // Inicializa la variable con un array vacío
 
-  constructor(private http: HttpClient, private AR: ActivatedRoute) { }
+  constructor(private http: HttpClient, private AR: ActivatedRoute, private router:Router) { }
   
   ngOnInit(): void {
     var busqueda: string ;
@@ -58,5 +58,11 @@ export class BusquedaMiembroComponentComponent implements OnInit {
     );
   }
 
-  // Puedes agregar más métodos según sea necesario
+  redirigirAPerfil(idCreyente: number) {
+    // Construir la ruta con el id_creyente
+    const rutaPerfil = `/perfil/${idCreyente}`;
+
+    // Redirigir a la ruta perfil
+    this.router.navigate([rutaPerfil]);
+  }
 }

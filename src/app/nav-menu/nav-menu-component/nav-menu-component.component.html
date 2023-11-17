@@ -18,8 +18,8 @@
                     </mat-expansion-panel-header>
                     <h3>Buscar Obrero</h3>
                     <mat-form-field>
-                        <input matInput placeholder="Buscar Obrero">
-                        <button mat-button matSuffix>
+                        <input matInput [(ngModel)]="valor_obrero" placeholder="Buscar Obrero">
+                        <button mat-button matSuffix (click)="searchobrero(valor_obrero)">
                             <mat-icon>search</mat-icon>
                         </button>
                     </mat-form-field>

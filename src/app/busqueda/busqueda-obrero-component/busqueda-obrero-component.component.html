@@ -1,17 +1,17 @@
 <mat-card class="card-container">
-    <h3 class="achetres">Resultados de la busqueda</h3>
+    <h3 class="achetres">Resultados de la búsqueda</h3>
     <mat-card-content>
-        <mat-expansion-panel *ngFor="let creyente of miembros" class="panel">
+        <mat-expansion-panel *ngFor="let obrero of obreros" class="panel">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    {{ creyente.nombre }}
+                    {{ obrero.nombre }}
                 </mat-panel-title>
                 <!-- Puedes agregar más detalles según tus necesidades -->
             </mat-expansion-panel-header>
             <mat-form-field class="form-field-container">
                 <div class="form-field-container">
-                    <input matInput [(ngModel)]="creyente.telefono" placeholder="Teléfono" readonly>
-                    <button mat-icon-button (click)="redirigirAPerfil(creyente.id)">
+                    <input matInput [(ngModel)]="obrero.telefono" placeholder="Teléfono" readonly>
+                    <button mat-icon-button>
                         <mat-icon>arrow_forward</mat-icon>
                     </button>
                 </div>

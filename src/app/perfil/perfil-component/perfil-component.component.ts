@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-perfil-component',
   templateUrl: './perfil-component.component.html',
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PerfilComponentComponent implements OnInit{
   problemas: any[] = [];
 
-  constructor(private http: HttpClient, private AR:ActivatedRoute,) { }
+  constructor(private http: HttpClient, private AR:ActivatedRoute, private router: Router,) { }
 
   ngOnInit(): void {
     // Supongamos que el id del perfil es 1
@@ -52,5 +52,11 @@ export class PerfilComponentComponent implements OnInit{
     console.log('Ver detalle del problema con ID:', id);
   }
 
-  
+  redirigirAPerfil(idCreyente: number) {
+    // Construir la ruta con el id_creyente
+    const rutaPerfil = `/problema/${idCreyente}`;
+    console.log(rutaPerfil);
+    // Redirigir a la ruta perfil
+    this.router.navigate([rutaPerfil]);
+  }
 }

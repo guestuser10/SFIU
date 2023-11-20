@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-problema-component',
   templateUrl: './problema-component.component.html',
@@ -15,10 +15,21 @@ export class ProblemaComponentComponent implements OnInit {
 
   newMessage: string = "";
 
-  constructor(private router: Router, private http: HttpClient) {}
+  
 
+
+  constructor(
+    private http: HttpClient, 
+    private AR: ActivatedRoute,
+    private dialog: MatDialog,
+    ) {}
+  
+  
+  
   ngOnInit(): void {
-    this.http.get<any>('http://127.0.0.1:8000/conversacion/1').subscribe(
+    var problemaid: string ;
+    problemaid = this.AR.snapshot.params['id_problema'];
+    this.http.get<any>(`http://127.0.0.1:8000/conversacion/${problemaid}`).subscribe(
       response => {
         if (response.problema) {
           this.problema = {

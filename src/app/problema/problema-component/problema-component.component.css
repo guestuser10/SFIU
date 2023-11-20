@@ -3,7 +3,7 @@
     width: 80%;
     margin: 0 auto;
     margin-top: 2vw;
-    padding: 5px;
+    padding: 2px;
     border-radius: 1vw;
     display: flex;
     
@@ -133,4 +133,8 @@
 .conversacion {
     overflow: hidden;
     position: relative;
+}
+
+.alert-button{
+    background-color: yellow;
 }

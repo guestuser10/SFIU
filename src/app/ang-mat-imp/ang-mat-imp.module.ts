@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { FormsModule } from '@angular/forms';
+import { TextFieldModule } from '@angular/cdk/text-field';
 @NgModule({
   declarations: [],
   imports: [
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatFormFieldModule,
     FormsModule,
+    TextFieldModule,
   ],
   exports:[
     MatToolbarModule, 
@@ -39,8 +41,8 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatFormFieldModule,
     FormsModule,
+    TextFieldModule,
   ],
 })
 export class AngMatImpModule { 
-  
 }

@@ -1,0 +1,136 @@
+.card-container {
+    background-color: #2d557e;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2vw;
+    padding: 5px;
+    border-radius: 1vw;
+    display: flex;
+    
+}
+
+.panel {
+    margin-bottom: 10px;
+}
+
+.form-field-container {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+}
+.estadoinf{
+    margin: auto 1vw;
+    font-weight: bold ;
+}
+.achetres{
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.mat-list-item {
+    width: 100%; /* Ajusta el ancho del mat-list-item al 100% */
+}
+
+.multiline-item {
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 0;
+}
+.card-container {
+    background-color: #2d557e;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2vw;
+    padding: 5px;
+}
+
+.heder {
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.achetres {
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.deescripcion {
+    background-color: aliceblue;
+    border-radius: 1vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-container {
+    background-color: aliceblue;
+    border-radius: 1vw;
+}
+.card-container {
+    background-color: #2d557e;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2vw;
+    padding: 5px;
+}
+
+.header-content {
+    width: 60%;
+    margin-left: 2.5vw;
+}
+
+.heder {
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.achetres {
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.deescripcion {
+    background-color: aliceblue;
+    border-radius: 1vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-container {
+    background-color: aliceblue;
+    border-radius: 1vw;
+}
+
+.conversacion {
+    margin: 1vw auto;
+}
+
+.message-panel {
+    background-color: aliceblue;
+    border-radius: 1vw;
+    margin-top: 1vw;
+}
+
+.form-field-container {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.send-button {
+    margin-left: 5px;
+}
+
+.conversacion {
+    overflow: hidden;
+    position: relative;
+}

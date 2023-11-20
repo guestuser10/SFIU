@@ -10,6 +10,7 @@ import { PerfilModule } from './perfil/perfil.module';
 import { AngMatImpModule } from './ang-mat-imp/ang-mat-imp.module';
 import { LoginModule } from './login/login.module';
 import { BusquedaModule } from './busqueda/busqueda.module';
+import { ProblemaModule } from './problema/problema.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,11 @@ import { BusquedaModule } from './busqueda/busqueda.module';
     AngMatImpModule,
     LoginModule,
     BusquedaModule,
+    ProblemaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  public link: string = "127.0.0.1";
+}

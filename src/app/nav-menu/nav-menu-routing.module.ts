@@ -5,6 +5,7 @@ import { MainMenuComponentComponent } from '../main-menu/main-menu-component/mai
 import { PerfilComponentComponent } from '../perfil/perfil-component/perfil-component.component';
 import { BusquedaMiembroComponentComponent } from '../busqueda/busqueda-miembro-component/busqueda-miembro-component.component';
 import { BusquedaObreroComponentComponent } from '../busqueda/busqueda-obrero-component/busqueda-obrero-component.component';
+import { ProblemaComponentComponent } from '../problema/problema-component/problema-component.component';
 
 const routes: Routes = [
   {path:'',
@@ -14,6 +15,7 @@ const routes: Routes = [
     {path: 'perfil/:id_creyente', component: PerfilComponentComponent},
     {path: 'miembro/:busqueda', component: BusquedaMiembroComponentComponent},
     {path: 'obrero/:busqueda', component: BusquedaObreroComponentComponent},
+    {path: 'problema/:id_problema', component: ProblemaComponentComponent},
     {path: '', redirectTo: 'login', pathMatch: 'full'},
   ],
 }

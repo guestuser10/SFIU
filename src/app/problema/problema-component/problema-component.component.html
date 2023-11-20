@@ -1,0 +1,45 @@
+<mat-card class="card-container">
+    <mat-card-header class="heder">
+        <div class="header-content">
+            <mat-card-title class="achetres">{{ problema.nombre_problema }}</mat-card-title>
+            <p class="deescripcion">{{ problema.descripcion }}</p>
+        </div>
+        <button mat-icon-button class="alert-button">
+            <mat-icon>add_alert</mat-icon>
+        </button>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="container">
+            <div class="message-container">
+                <h4 class="achetres">Seguimiento</h4>
+                <mat-list class="conversacion" >
+                    <mat-list-item style="height: 100%; " *ngFor="let chunk of mensajeChunks" >
+                        <div *ngFor="let messagePart of chunk" >
+                            <p>{{ messagePart }}</p>
+                        </div>
+                        <!--<mat-icon>edit</mat-icon>-->
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <div>
+                <mat-expansion-panel class="message-panel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Mensaje</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-form-field class="form-field-container">
+                        <div class="form-field-container">
+                            <textarea matInput placeholder="Escribe aquí" [(ngModel)]="newMessage"></textarea>
+                            <button mat-icon-button class="send-button" (click)="addMessage()">
+                                <mat-icon>send</mat-icon>
+                            </button>
+                        </div>
+                    </mat-form-field>
+                </mat-expansion-panel>
+                <button mat-icon-buttonclass="resuelto" style="display: flex; flex-direction: row; border-radius: 1vw; background-color: lightgreen; margin: 1vw auto 0 auto;">
+                    <p style="margin-top: 4px;" >¿Se resolvió el problema?</p>
+                    <mat-icon>check_circle_outline</mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

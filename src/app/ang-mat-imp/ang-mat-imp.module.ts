@@ -10,6 +10,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FormsModule } from '@angular/forms';
 import { TextFieldModule } from '@angular/cdk/text-field';
@@ -29,6 +30,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatFormFieldModule,
     FormsModule,
     TextFieldModule,
+    MatDialogModule,
   ],
   exports:[
     MatToolbarModule, 
@@ -42,6 +44,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatFormFieldModule,
     FormsModule,
     TextFieldModule,
+    MatDialogModule,
   ],
 })
 export class AngMatImpModule { 

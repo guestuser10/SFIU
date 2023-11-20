@@ -12,6 +12,7 @@ import { LoginModule } from './login/login.module';
 import { BusquedaModule } from './busqueda/busqueda.module';
 import { ProblemaModule } from './problema/problema.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,

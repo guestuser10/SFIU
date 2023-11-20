@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { ResueltoDialogComponent } from '../resuelto-dialog/resuelto-dialog.component';
+import { AbiertoDialogComponent } from '../abierto-dialog/abierto-dialog.component';
 @Component({
   selector: 'app-problema-component',
   templateUrl: './problema-component.component.html',
@@ -15,8 +17,7 @@ export class ProblemaComponentComponent implements OnInit {
 
   newMessage: string = "";
 
-  
-
+  private baseUrl = 'http://127.0.0.1:8000/estado';
 
   constructor(
     private http: HttpClient, 
@@ -54,7 +55,6 @@ export class ProblemaComponentComponent implements OnInit {
             activo: mensaje.activo
           }));
           this.createMessageChunks();
-          console.log('Mensaje Chunks:', this.mensajeChunks);
         } else {
           this.mensajes = [{ id: 0, mensaje: "no hay mensajes", fecha: "", id_problema: 0, activo: 0 }];
         }
@@ -65,8 +65,6 @@ export class ProblemaComponentComponent implements OnInit {
         console.error('Error al obtener datos:', error);
       }
     );
-    console.log('Problema:', this.problema);
-    console.log('Mensaje Chunks:', this.mensajeChunks);
   }
 
   private createMessageChunks() {
@@ -118,10 +116,7 @@ export class ProblemaComponentComponent implements OnInit {
     // Assuming you have an endpoint for adding messages, replace 'your-api-endpoint' with the actual URL
     this.http.post('http://127.0.0.1:8000/create_mensaje', newMessageObject).subscribe(
       response => {
-        // Handle the response as needed
-        console.log('New message added:', response);
-
-        // Assuming you want to refresh the messages after adding a new one
+        //refresh 
         this.ngOnInit();
       },
       error => {
@@ -129,6 +124,36 @@ export class ProblemaComponentComponent implements OnInit {
       }
     );
   }
-
   
+  openResueltoDialog(): void {
+    const dialogRef = this.dialog.open(ResueltoDialogComponent, {
+
+      width: '250px',
+    });
+  }
+  openAbiertoDialog(): void {
+    const dialogRef = this.dialog.open(AbiertoDialogComponent, {
+
+      width: '250px',
+    });
+  }
+  CambiarEstado(jid:number, estadoId:number): void {
+    estadoId = estadoId === 1 ? 2 : 1;
+    this.ngOnInit
+    
+    this.http.put(`${this.baseUrl}/${jid}/${estadoId}`, {}).subscribe(
+      response => {
+        if(estadoId === 2){
+          this.openResueltoDialog();
+          return location.reload();;
+        }
+        this.openAbiertoDialog();
+        location.reload();       
+      },
+      error => {
+        console.error('Error al cambiar el estado', error);
+        // Manejo de errores
+      }
+    );
+  }
 }

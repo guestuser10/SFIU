@@ -35,11 +35,13 @@
                         </div>
                     </mat-form-field>
                 </mat-expansion-panel>
-                <button mat-icon-button class="resuelto" 
+                <button mat-icon-button class="resuelto" (click)="CambiarEstado(problema.id, problema.id_estado)"
                 style="display: flex; flex-direction: row; border-radius: 1vw; width: fit-content;
-                background-color: lightgreen; margin: 1vw auto 0 auto; font-size: medium;">
-                    <p>¿Se resolvió el problema?</p>
-                    <mat-icon>check_circle_outline</mat-icon>
+                margin: 1vw auto 0 auto; font-size: medium;"
+                [style.background-color]="problema.id_estado === 1 ? 'lightgreen' : 'lightcoral'"
+                >
+                    <p style="margin-top: 2px;">{{ problema.id_estado === 1 ? '¿Finalizar problema?' : '¿Marcar como pendiente?' }}</p>
+                    <mat-icon>{{ problema.id_estado === 1 ? 'check_circle_outline' : 'highlight_off' }}</mat-icon>
                 </button>
             </div>
         </div>

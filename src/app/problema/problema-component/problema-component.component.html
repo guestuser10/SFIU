@@ -4,7 +4,7 @@
             <mat-card-title class="achetres">{{ problema.nombre_problema }}</mat-card-title>
             <p class="deescripcion">{{ problema.descripcion }}</p>
         </div>
-        <button mat-icon-button class="alert-button">
+        <button mat-icon-button class="alert-button" (click)="openDTPDialog(problema.id)">
             <mat-icon>add_alert</mat-icon>
         </button>
     </mat-card-header>

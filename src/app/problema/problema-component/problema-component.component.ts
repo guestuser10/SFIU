@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ResueltoDialogComponent } from '../resuelto-dialog/resuelto-dialog.component';
 import { AbiertoDialogComponent } from '../abierto-dialog/abierto-dialog.component';
+import { RevisionDialogComponent } from '../revision-dialog/revision-dialog.component';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-problema-component',
   templateUrl: './problema-component.component.html',
@@ -17,7 +19,7 @@ export class ProblemaComponentComponent implements OnInit {
 
   newMessage: string = "";
 
-  private baseUrl = 'http://127.0.0.1:8000/estado';
+  private baseUrl = 'http://127.0.0.1:8000';
 
   constructor(
     private http: HttpClient, 
@@ -137,11 +139,37 @@ export class ProblemaComponentComponent implements OnInit {
       width: '250px',
     });
   }
+  openDTPDialog(jid: number): void {
+
+    const dialogRef = this.dialog.open(RevisionDialogComponent, {
+      width: '300px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.date) {
+        console.log('Fecha seleccionada:', result.date);
+        const formattedDate = this.formatDateToCustomString(result.date);
+
+        this.http.put(`${this.baseUrl}/revision/${jid}/${formattedDate}`, {}).subscribe(
+          response => {
+            console.log(response+formattedDate);         
+          },
+          error => {
+            console.error('Error al cambiar el estado', error);
+            // Manejo de errores
+          }
+        );
+        
+      } else {
+        console.log('El diálogo se cerró sin seleccionar una fecha.');
+      }
+    });
+
+  }
   CambiarEstado(jid:number, estadoId:number): void {
     estadoId = estadoId === 1 ? 2 : 1;
     this.ngOnInit
     
-    this.http.put(`${this.baseUrl}/${jid}/${estadoId}`, {}).subscribe(
+    this.http.put(`${this.baseUrl}/estado/${jid}/${estadoId}`, {}).subscribe(
       response => {
         if(estadoId === 2){
           this.openResueltoDialog();
@@ -155,5 +183,20 @@ export class ProblemaComponentComponent implements OnInit {
         // Manejo de errores
       }
     );
+  }
+
+  formatDateToCustomString(date: Date): string {
+    const year = date.getUTCFullYear();
+    const month = this.padZero(date.getUTCMonth() + 1);
+    const day = this.padZero(date.getUTCDate());
+    const hours = this.padZero(date.getUTCHours());
+    const minutes = this.padZero(date.getUTCMinutes());
+    const seconds = this.padZero(date.getUTCSeconds());
+  
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+  }
+  
+  padZero(value: number): string {
+    return value < 10 ? `0${value}` : `${value}`;
   }
 }

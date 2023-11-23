@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { isThisWeek } from 'date-fns';
 
 @Component({
   selector: 'app-main-menu-component',
@@ -8,53 +9,70 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-menu-component.component.css']
 })
 export class MainMenuComponentComponent implements OnInit {
-  problemas: any[] = []; 
+  problemas: any[] = [];
+
   constructor(private router: Router, private http: HttpClient) {}
 
-  problemasConRevision = this.problemas.map(problema => {
-    if (!problema.revision) {
-      return { ...problema, descripcionCorta: problema.descripcion.slice(0, 10) };
+  esEstaSemana(fechaRevision: Date, hoy: Date): boolean {
+    return isThisWeek(fechaRevision, { weekStartsOn: 1 }); // 1 para que la semana empiece en lunes
+  }
+
+  obtenerCategoria(revision: string): string {
+    const fechaRevision = new Date(revision);
+    const hoy = new Date();
+
+    if (fechaRevision < hoy) {
+      return 'CON RETRAZO';
+    } else if (this.esEstaSemana(fechaRevision, hoy)) {
+      return 'ESTA SEMANA';
+    } else {
+      return 'MAS TIEMPO';
     }
-    return problema;
-    
-  });
+  }
 
   ngOnInit(): void {
     this.http.get<any>('http://127.0.0.1:8000/main_menu/1').subscribe(
       response => {
-        // Verifica si la respuesta contiene la clave "Problemas"
-        if (response.Problemas) {
-          // Transforma el formato del array
-          this.problemas = response.Problemas.map((problema: any) => {
-            return {
-              id: problema.id,
-              id_creyente: problema.id_creyente,
-              nombre_creyente: problema.nombre_creyente,
-              nombre_problema: problema.nombre_problema,
-              descripcion: problema.descripcion,
-              fecha_creacion: problema.fecha_creacion,
-              revision: problema.revision,
-              id_estado: problema.id_estado,
-              activo: problema.activo
-            };
-          });
-        } else {
-          // Usa el formato existente si no hay clave "Problemas"
-          this.problemas = response;
-        }
+        this.problemas = response.Problemas.map((problema: any) => {
+          return {
+            id: problema.id,
+            id_creyente: problema.id_creyente,
+            nombre_creyente: problema.nombre_creyente,
+            nombre_problema: problema.nombre_problema,
+            descripcion: problema.descripcion,
+            fecha_creacion: problema.fecha_creacion,
+            revision: problema.revision,
+            id_estado: problema.id_estado,
+            activo: problema.activo,
+            categoria: this.obtenerCategoria(problema.revision), // Agrega la categoría aquí
+          };
+        });
       },
       error => {
         console.error('Error al obtener datos:', error);
       }
     );
   }
+  
+  getColor(categoria: string): string {
+    switch (categoria) {
+      case 'CON RETRAZO':
+        return 'lightcoral';
+      case 'ESTA SEMANA':
+        return '';
+      case 'MAS TIEMPO':
+        return '';
+      default:
+        return '';
+    }
+  }  
 
   redirigirAPerfil(idCreyente: number) {
-    // Construir la ruta con el id_creyente
     const rutaPerfil = `/perfil/${idCreyente}`;
-
-    // Redirigir a la ruta perfil
     this.router.navigate([rutaPerfil]);
   }
 
+  problemasConCategoria(categoria: string): any[] {
+    return this.problemas.filter(problema => problema.categoria === categoria);
+  }
 }

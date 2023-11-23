@@ -1,13 +1,25 @@
-<mat-card class="card-container">
-    <h3 class="achetres">Resultados de la busqueda</h3>
-    <mat-card-content>
-        <mat-expansion-panel *ngFor="let creyente of miembros" class="panel">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
+<div class="busqueda-container">  
+    <!-- Resultados de la Búsqueda -->
+    <mat-card class="card-container">
+        <h3 class="achetres">Resultados de la busqueda</h3>
+        <mat-card-content>
+
+            <mat-expansion-panel class="panel">
+                <mat-expansion-panel-header >
+                    <mat-panel-title>FILTROS DE BUSQUEDA</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div style="margin: 0 auto; border: 3px solid black; width: fit-content; border-radius: 1vw;">
+                    <button mat-button (click)="cambiarOrden('asc')">A-Z</button>
+                    <button mat-button (click)="cambiarOrden('desc')">Z-A</button>
+                </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel *ngFor="let creyente of miembros" class="panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
                     {{ creyente.nombre }}
-                </mat-panel-title>
-                <!-- Puedes agregar más detalles según tus necesidades -->
-            </mat-expansion-panel-header>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
             <mat-form-field class="form-field-container">
                 <div class="form-field-container">
                     <input matInput [(ngModel)]="creyente.telefono" placeholder="Teléfono" readonly>
@@ -16,6 +28,7 @@
                     </button>
                 </div>
             </mat-form-field>
-        </mat-expansion-panel>
-    </mat-card-content>
-</mat-card>
+            </mat-expansion-panel>
+        </mat-card-content>
+    </mat-card>
+</div>

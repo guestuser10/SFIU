@@ -25,3 +25,12 @@
     font-weight: bold;
     color: aliceblue;
 }
+.filtro-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .filtro-item {
+    margin-right: 20px;
+  }

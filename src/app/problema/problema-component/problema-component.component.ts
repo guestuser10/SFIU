@@ -56,7 +56,7 @@ export class ProblemaComponentComponent implements OnInit {
             id_problema: mensaje.id_problema,
             activo: mensaje.activo
           }));
-          this.createMessageChunks();
+          //this.createMessageChunks();
         } else {
           this.mensajes = [{ id: 0, mensaje: "no hay mensajes", fecha: "", id_problema: 0, activo: 0 }];
         }

@@ -11,15 +11,14 @@
     <mat-card-content >
         <div class="container">
             <div class="message-container">
-                <h4 class="achetres">Seguimiento</h4>
-                <mat-list class="conversacion" >
-                    <mat-list-item style="height: 100%; " *ngFor="let chunk of mensajeChunks" >
-                        <div *ngFor="let messagePart of chunk" >
-                            <p>{{ messagePart }}</p>
-                        </div>
+                <h4 class="achetres" style="color: black; text-align: center; margin-top: 1vh;">Seguimiento</h4>
+                <div class="conversacion" >
+                    <div style="height: 100%; " *ngFor="let mensaje of mensajes" >
+                        <p style="font-size: 2vh; margin: 1vw;">{{mensaje.fecha.slice(0,10)}} - </p>
+                        <p style="font-size: 2vh; margin: 1vw; border-bottom: 3px solid black;">{{ mensaje.mensaje }}</p>
                         <!--<mat-icon>edit</mat-icon>-->
-                    </mat-list-item>
-                </mat-list>
+                    </div>
+                </div>
             </div>
             <div>
                 <mat-expansion-panel class="message-panel">

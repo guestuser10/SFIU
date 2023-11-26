@@ -4,10 +4,12 @@ import { PerfilComponentComponent } from './perfil-component/perfil-component.co
 import { AngMatImpModule } from '../ang-mat-imp/ang-mat-imp.module';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { AddProblemaDialogComponent } from './add-problema-dialog/add-problema-dialog.component';
 
 @NgModule({
   declarations: [
     PerfilComponentComponent,
+    AddProblemaDialogComponent,
   ],
   imports: [
     CommonModule,

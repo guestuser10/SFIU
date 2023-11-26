@@ -5,48 +5,45 @@
 
     <form (submit)="enviarFormulario()" class="custom-scrollbar">
         <!-- Campos del formulario -->
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" [(ngModel)]="nuevoCreyente.nombre" required>
+        <mat-form-field>
+            <mat-label>Nombre:</mat-label>
+            <input matInput type="text" id="nombre" name="nombre" [(ngModel)]="nuevoCreyente.nombre" required>
+        </mat-form-field>
 
-        <label for="telefono">Teléfono:</label>
-        <input type="text" id="telefono" name="telefono"  [(ngModel)]="nuevoCreyente.telefono" required>
-    
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion"  [(ngModel)]="nuevoCreyente.direccion" required>
+        <mat-form-field>
+            <mat-label>Teléfono:</mat-label>
+            <input matInput type="text" id="telefono" name="telefono" [(ngModel)]="nuevoCreyente.telefono" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Dirección:</mat-label>
+            <input matInput type="text" id="direccion" name="direccion" [(ngModel)]="nuevoCreyente.direccion" required>
+        </mat-form-field>
 
         <div class="checkbox-container">
-            <h3>Dias disp</h3>
+            <h3>Días disp</h3>
             <div class="checkbox-group">
-                <label for="lunes">L</label>
-                <input type="checkbox" id="lunes" name="dias_disp" value="V" [(ngModel)]="diasDisp[0]">
-
-                <label for="martes">M</label>
-                <input type="checkbox" id="martes" name="dias_disp" value="V" [(ngModel)]="diasDisp[1]">
-
-                <label for="miercoles">M</label>
-                <input type="checkbox" id="miercoles" name="dias_disp" value="V" [(ngModel)]="diasDisp[2]">
-
-                <label for="jueves">J</label>
-                <input type="checkbox" id="jueves" name="dias_disp" value="V" [(ngModel)]="diasDisp[3]">
+                <mat-checkbox id="lunes" name="dias_disp" [(ngModel)]="diasDisp[0]">L</mat-checkbox>
+                <mat-checkbox id="martes" name="dias_disp" [(ngModel)]="diasDisp[1]">M</mat-checkbox>
+                <mat-checkbox id="miercoles" name="dias_disp" [(ngModel)]="diasDisp[2]">M</mat-checkbox>
+                <mat-checkbox id="jueves" name="dias_disp" [(ngModel)]="diasDisp[3]">J</mat-checkbox>
             </div>
 
             <div class="checkbox-group">
-                <label for="viernes">V</label>
-                <input type="checkbox" id="viernes" name="dias_disp" value="V" [(ngModel)]="diasDisp[4]">
-
-                <label for="sabado">S</label>
-                <input type="checkbox" id="sabado" name="dias_disp" value="V" [(ngModel)]="diasDisp[5]">
-
-                <label for="domingo">D</label>
-                <input type="checkbox" id="domingo" name="dias_disp" value="V" [(ngModel)]="diasDisp[6]">
+                <mat-checkbox id="viernes" name="dias_disp" [(ngModel)]="diasDisp[4]">V</mat-checkbox>
+                <mat-checkbox id="sabado" name="dias_disp" [(ngModel)]="diasDisp[5]">S</mat-checkbox>
+                <mat-checkbox id="domingo" name="dias_disp" [(ngModel)]="diasDisp[6]">D</mat-checkbox>
             </div>
         </div>
-    
-        <label for="id_grupo">Grupo:</label>
-        <select id="id_grupo" name="gpo"  [(ngModel)]="nuevoCreyente.id_grupo" required>
-            <option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.nombre }}</option>
-        </select>
+
+        <mat-form-field>
+            <mat-label>Grupo:</mat-label>
+            <mat-select id="id_grupo" name="gpo" [(ngModel)]="nuevoCreyente.id_grupo" required>
+                <mat-option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.nombre }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
         <!-- Botón de enviar -->
-        <button type="submit">Agregar Creyente</button>
+        <button mat-raised-button type="submit">Agregar Creyente</button>
     </form>
 </div>

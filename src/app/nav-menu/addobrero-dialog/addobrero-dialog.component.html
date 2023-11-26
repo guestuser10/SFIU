@@ -1,31 +1,43 @@
 <!-- tu-componente.component.html -->
 
-<div >
+<div>
     <h2>Añadir Obrero</h2>
 
-    <form (submit)="enviarFormulario()" >
+    <form (submit)="enviarFormulario()">
         <!-- Campos del formulario -->
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" [(ngModel)]="nuevoUsuario.nombre" required>
+        <mat-form-field>
+            <mat-label>Nombre:</mat-label>
+            <input matInput type="text" id="nombre" name="nombre" [(ngModel)]="nuevoUsuario.nombre" required>
+        </mat-form-field>
 
-        <label for="telefono">Teléfono:</label>
-        <input type="text" id="telefono" name="telefono"  [(ngModel)]="nuevoUsuario.telefono" required>
+        <mat-form-field>
+            <mat-label>Teléfono:</mat-label>
+            <input matInput type="text" id="telefono" name="telefono" [(ngModel)]="nuevoUsuario.telefono" required>
+        </mat-form-field>
     
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion"  [(ngModel)]="nuevoUsuario.direccion" required>
+        <mat-form-field>
+            <mat-label>Dirección:</mat-label>
+            <input matInput type="text" id="direccion" name="direccion" [(ngModel)]="nuevoUsuario.direccion" required>
+        </mat-form-field>
     
-        <label for="id_grupo">Grupo:</label>
-        <select id="id_grupo" name="gpo"  [(ngModel)]="nuevoUsuario.id_grupo" required>
-            <option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.nombre }}</option>
-        </select>
+        <mat-form-field>
+            <mat-label>Grupo:</mat-label>
+            <mat-select id="id_grupo" name="gpo" [(ngModel)]="nuevoUsuario.id_grupo" required>
+                <mat-option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.nombre }}</mat-option>
+            </mat-select>
+        </mat-form-field>
     
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usr" [(ngModel)]="nuevoUsuario.usuario" required>
+        <mat-form-field>
+            <mat-label>Usuario:</mat-label>
+            <input matInput type="text" id="usuario" name="usr" [(ngModel)]="nuevoUsuario.usuario" required>
+        </mat-form-field>
     
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="pwd"  [(ngModel)]="nuevoUsuario.contrasena" required>
+        <mat-form-field>
+            <mat-label>Contraseña:</mat-label>
+            <input matInput type="password" id="contrasena" name="pwd" [(ngModel)]="nuevoUsuario.contrasena" required>
+        </mat-form-field>
     
         <!-- Botón de enviar -->
-        <button type="submit">Agregar Obrero</button>
+        <button mat-raised-button type="submit">Agregar Obrero</button>
     </form>
 </div>

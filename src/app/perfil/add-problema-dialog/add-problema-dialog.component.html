@@ -1,0 +1,19 @@
+<!-- add-problema-dialog.component.html -->
+
+<div>
+    <h2>Añadir Problema</h2>
+
+    <form (submit)="enviarFormulario()">
+        <mat-form-field>
+            <label for="nombreProblema">Nombre del Problema:</label>
+            <input matInput type="text" id="nombreProblema" name="nombreProblema" [(ngModel)]="problema.nombre_problema" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <label for="descripcion">Descripción:</label>
+            <textarea matInput id="descripcion" name="descripcion" [(ngModel)]="problema.descripcion" required></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit">Agregar Problema</button>
+    </form>
+</div>

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProblemaDialogComponent } from '../add-problema-dialog/add-problema-dialog.component';
 @Component({
   selector: 'app-perfil-component',
   templateUrl: './perfil-component.component.html',
@@ -9,7 +11,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PerfilComponentComponent implements OnInit{
   problemas: any[] = [];
   nombre: any;
-  constructor(private http: HttpClient, private AR:ActivatedRoute, private router: Router,) { }
+  constructor(
+    private http: HttpClient, 
+    private AR:ActivatedRoute, 
+    private router: Router,
+    public dialog: MatDialog,
+    ) { }
 
   ngOnInit(): void {
     // Supongamos que el id del perfil es 1
@@ -61,5 +68,10 @@ export class PerfilComponentComponent implements OnInit{
     console.log(rutaPerfil);
     // Redirigir a la ruta perfil
     this.router.navigate([rutaPerfil]);
+  }
+  DialogAddProblema() {
+    const dialogRef = this.dialog.open(AddProblemaDialogComponent, {
+      width: '400px'
+    });
   }
 }

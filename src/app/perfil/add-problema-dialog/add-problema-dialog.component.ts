@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AddProblemaDialogComponent implements OnInit {
   problema: any = {
     id: 0,
-    id_creyente: 0,
+    id_creyente:"",
     nombre_problema: "",
     descripcion: "",
     id_estado: 1,
@@ -19,7 +19,7 @@ export class AddProblemaDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<AddProblemaDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { id_creyente: number },
+    @Inject(MAT_DIALOG_DATA) public data: { id_creyente: any },
     private http: HttpClient
   ) {}
 

@@ -20,9 +20,9 @@ export class PerfilComponentComponent implements OnInit{
 
   ngOnInit(): void {
     // Supongamos que el id del perfil es 1
-    var perfilId: string ;
+    //var perfilId: string ;
 
-    perfilId = this.AR.snapshot.params['id_creyente'];
+    const perfilId = this.AR.snapshot.params['id_creyente'];
     
     
     this.http.get<any>(`http://127.0.0.1:8000/perfil/${perfilId}`).subscribe(
@@ -71,7 +71,8 @@ export class PerfilComponentComponent implements OnInit{
   }
   DialogAddProblema() {
     const dialogRef = this.dialog.open(AddProblemaDialogComponent, {
-      width: '400px'
+      width: '400px',
+      data: { id_creyente: this.AR.snapshot.params['id_creyente'] } 
     });
   }
 }

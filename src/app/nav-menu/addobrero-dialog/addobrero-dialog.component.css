@@ -39,3 +39,27 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+.custom-scrollbar {
+    max-height: 90vh; 
+    overflow-y: auto;
+    margin-left: 10px; 
+}
+
+/* Chrome, Edge y Safari */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #DFE9EB;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #2D557E;
+    left: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #000000;
+}

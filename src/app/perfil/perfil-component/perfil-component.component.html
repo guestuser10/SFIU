@@ -1,5 +1,13 @@
 <mat-card class="card-container">
-    <h3 class="achetres">{{problemas[0].nombre_creyente}}</h3>
+    <div style="display: flex; justify-content: space-between; width: 97%; margin: 0 auto; align-items: center;">
+        <h3 class="achetres" style="margin: auto;">{{nombre}}</h3>
+        <button mat-icon-button class="alert-button" style=" font-size: medium;   margin: 1vh;background-color: lightgreen;">
+            <mat-icon>note_add</mat-icon>
+        </button>
+    </div>
+    
+    
+    
     <mat-card-content>
         <mat-expansion-panel *ngFor="let problema of problemas" class="panel">
             <mat-expansion-panel-header>

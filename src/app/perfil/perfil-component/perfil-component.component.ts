@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PerfilComponentComponent implements OnInit{
   problemas: any[] = [];
-
+  nombre: any;
   constructor(private http: HttpClient, private AR:ActivatedRoute, private router: Router,) { }
 
   ngOnInit(): void {
@@ -21,6 +21,9 @@ export class PerfilComponentComponent implements OnInit{
     this.http.get<any>(`http://127.0.0.1:8000/perfil/${perfilId}`).subscribe(
       response => {
         // Verifica si la respuesta contiene la clave "Problemas"
+        if (response.nombre_creyente) {
+          this.nombre = response.nombre_creyente;
+        }
         if (response.Problemas) {
           // Transforma el formato del array
           this.problemas = response.Problemas.map((problema: any) => {

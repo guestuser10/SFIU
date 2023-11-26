@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { isThisWeek } from 'date-fns';
+import { env } from 'src/environments/environment';
+const apiUrl = env.apiUrl;
 
 @Component({
   selector: 'app-main-menu-component',
@@ -31,7 +33,7 @@ export class MainMenuComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<any>('http://127.0.0.1:8000/main_menu/1').subscribe(
+    this.http.get<any>(`http://127.0.0.1:8000/main_menu/1`).subscribe(
       response => {
         this.problemas = response.Problemas.map((problema: any) => {
           return {

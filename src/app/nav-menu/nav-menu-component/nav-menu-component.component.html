@@ -27,7 +27,7 @@
                     <h3>Buscar miembros</h3>
                     <mat-form-field>
                         <input matInput [(ngModel)]="valor_miembro" placeholder="Buscar miembro">
-                        <button mat-button matSuffix (click)="searchmiembro(valor_miembro)">
+                        <button mat-button matSuffix routerLink="aqui pon la ruta" (click)="searchmiembro(valor_miembro)">
                             <mat-icon>search</mat-icon>
                         </button>
                     </mat-form-field>
@@ -41,8 +41,8 @@
                     <mat-expansion-panel-header>
                         <mat-panel-title>Añadir miembros</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <a mat-list-item href="#">añadir nuevo obrero</a>
-                    <a mat-list-item href="#">añadir nuevo miembro</a>
+                    <a mat-list-item (click)="DialogAddObrero()">añadir nuevo obrero</a>
+                    <a mat-list-item (click)="DialogAddCreyente()">añadir nuevo miembro</a>
                 </mat-expansion-panel>
             </mat-accordion>
 

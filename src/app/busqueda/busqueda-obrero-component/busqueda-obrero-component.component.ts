@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { env } from 'src/environments/environment';
 // Define una interfaz para representar la estructura del JSON esperado del servidor
 interface ObreroResponse {
   Obreros?: any[]; // Actualiza el nombre según la estructura real del JSON
 }
-
+const apiUrl = env.apiUrl;
 @Component({
   selector: 'app-busqueda-obrero-component', // Actualiza el nombre del selector
   templateUrl: './busqueda-obrero-component.component.html',

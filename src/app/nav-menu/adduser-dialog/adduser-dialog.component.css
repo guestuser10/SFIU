@@ -1,0 +1,102 @@
+div {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input,
+select,
+button {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo específico para los checkboxes */
+div > div {
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+}
+
+div > div label {
+    display: block;
+    width: 30px;
+    text-align: center;
+    margin-right: 0px;
+}
+
+div > div input {
+    margin-bottom: 5px;
+}
+/* Estilo específico para los checkboxes */
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 85%;
+    width: 85%;
+}
+
+.checkbox-group {
+    text-align: center;
+    max-width: 85%;
+    width: 85%;
+}
+
+.checkbox-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.checkbox-group input {
+    width: 20px;
+}
+/* Estilo específico para el formulario con scrollbar personalizado */
+.custom-scrollbar {
+    max-height: 90vh; 
+    overflow-y: auto;
+    margin-left: 10px; 
+}
+
+/* Chrome, Edge y Safari */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #DFE9EB;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #2D557E;
+    left: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #000000;
+}

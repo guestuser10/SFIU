@@ -1,0 +1,31 @@
+<!-- tu-componente.component.html -->
+
+<div >
+    <h2>Añadir Obrero</h2>
+
+    <form (submit)="enviarFormulario()" >
+        <!-- Campos del formulario -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="nuevoUsuario.nombre" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono"  [(ngModel)]="nuevoUsuario.telefono" required>
+    
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion"  [(ngModel)]="nuevoUsuario.direccion" required>
+    
+        <label for="id_grupo">Grupo:</label>
+        <select id="id_grupo" name="gpo"  [(ngModel)]="nuevoUsuario.id_grupo" required>
+            <option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.nombre }}</option>
+        </select>
+    
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usr" [(ngModel)]="nuevoUsuario.usuario" required>
+    
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="pwd"  [(ngModel)]="nuevoUsuario.contrasena" required>
+    
+        <!-- Botón de enviar -->
+        <button type="submit">Agregar Obrero</button>
+    </form>
+</div>

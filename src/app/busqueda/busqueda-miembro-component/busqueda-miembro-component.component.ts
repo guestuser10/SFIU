@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { env } from 'src/environments/environment';
+const apiUrl = env.apiUrl;
 
 interface MiembroResponse {
   Creyentes?: any[];

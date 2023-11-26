@@ -1,0 +1,52 @@
+<!-- addcreyente-dialog.component.html -->
+
+<div>
+    <h2>Añadir Creyente</h2>
+
+    <form (submit)="enviarFormulario()" class="custom-scrollbar">
+        <!-- Campos del formulario -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="nuevoCreyente.nombre" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono"  [(ngModel)]="nuevoCreyente.telefono" required>
+    
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion"  [(ngModel)]="nuevoCreyente.direccion" required>
+
+        <div class="checkbox-container">
+            <h3>Dias disp</h3>
+            <div class="checkbox-group">
+                <label for="lunes">L</label>
+                <input type="checkbox" id="lunes" name="dias_disp" value="V" [(ngModel)]="diasDisp[0]">
+
+                <label for="martes">M</label>
+                <input type="checkbox" id="martes" name="dias_disp" value="V" [(ngModel)]="diasDisp[1]">
+
+                <label for="miercoles">M</label>
+                <input type="checkbox" id="miercoles" name="dias_disp" value="V" [(ngModel)]="diasDisp[2]">
+
+                <label for="jueves">J</label>
+                <input type="checkbox" id="jueves" name="dias_disp" value="V" [(ngModel)]="diasDisp[3]">
+            </div>
+
+            <div class="checkbox-group">
+                <label for="viernes">V</label>
+                <input type="checkbox" id="viernes" name="dias_disp" value="V" [(ngModel)]="diasDisp[4]">
+
+                <label for="sabado">S</label>
+                <input type="checkbox" id="sabado" name="dias_disp" value="V" [(ngModel)]="diasDisp[5]">
+
+                <label for="domingo">D</label>
+                <input type="checkbox" id="domingo" name="dias_disp" value="V" [(ngModel)]="diasDisp[6]">
+            </div>
+        </div>
+    
+        <label for="id_grupo">Grupo:</label>
+        <select id="id_grupo" name="gpo"  [(ngModel)]="nuevoCreyente.id_grupo" required>
+            <option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.nombre }}</option>
+        </select>
+        <!-- Botón de enviar -->
+        <button type="submit">Agregar Creyente</button>
+    </form>
+</div>

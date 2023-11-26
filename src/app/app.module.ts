@@ -11,6 +11,7 @@ import { AngMatImpModule } from './ang-mat-imp/ang-mat-imp.module';
 import { LoginModule } from './login/login.module';
 import { BusquedaModule } from './busqueda/busqueda.module';
 import { ProblemaModule } from './problema/problema.module';
+import { ConfiguracionModule } from './configuracion/configuracion.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ProblemaModule } from './problema/problema.module';
     LoginModule,
     BusquedaModule,
     ProblemaModule,
+    ConfiguracionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

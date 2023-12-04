@@ -12,7 +12,7 @@ const apiUrl = env.apiUrl;
 })
 export class MainMenuComponentComponent implements OnInit {
   problemas: any[] = [];
-
+  gpo: number = 3;
   constructor(private router: Router, private http: HttpClient) {}
 
   esEstaSemana(fechaRevision: Date, hoy: Date): boolean {
@@ -33,7 +33,7 @@ export class MainMenuComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<any>(`http://127.0.0.1:8000/main_menu/1`).subscribe(
+    this.http.get<any>(`http://127.0.0.1:8000/main_menu/${this.gpo}`).subscribe(
       response => {
         this.problemas = response.Problemas.map((problema: any) => {
           return {

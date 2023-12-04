@@ -47,6 +47,7 @@ export class AdduserDialogComponent implements OnInit{
         .subscribe(response => {
           console.log(response);
         });
+        location.reload();
     }
 }
 

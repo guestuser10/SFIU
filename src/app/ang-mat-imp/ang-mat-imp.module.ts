@@ -15,6 +15,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 import { FormsModule } from '@angular/forms';
 import { TextFieldModule } from '@angular/cdk/text-field';
@@ -40,6 +41,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatNativeDateModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatTableModule,
   ],
   exports:[
     MatToolbarModule, 
@@ -58,6 +60,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatNativeDateModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatTableModule,
   ],
 })
 export class AngMatImpModule { 

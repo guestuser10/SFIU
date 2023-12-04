@@ -1,0 +1,15 @@
+<div>
+    <h2>Añadir Grupo</h2>
+
+    <form (submit)="enviarFormulario()" class="custom-scrollbar">
+        <!-- Campos del formulario -->
+        <mat-form-field>
+            <mat-label>Nombre:</mat-label>
+            <input matInput type="text" id="nombre" name="nombre" [(ngModel)]="nuevoGrupo.nombre" required>
+        </mat-form-field>
+
+    
+        <!-- Botón de enviar -->
+        <button mat-raised-button type="submit">Agregar Grupo</button>
+    </form>
+</div>

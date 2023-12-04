@@ -41,6 +41,7 @@ export class AddobreroDialogComponent implements OnInit {
       .subscribe(response => {
         console.log(response);
       });
+      location.reload();
   }
 
 }

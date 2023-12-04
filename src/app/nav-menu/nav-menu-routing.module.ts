@@ -7,6 +7,7 @@ import { BusquedaMiembroComponentComponent } from '../busqueda/busqueda-miembro-
 import { BusquedaObreroComponentComponent } from '../busqueda/busqueda-obrero-component/busqueda-obrero-component.component';
 import { ProblemaComponentComponent } from '../problema/problema-component/problema-component.component';
 import { ConfiguracionComponentComponent } from '../configuracion/configuracion-component/configuracion-component.component';
+import { FAQComponentComponent } from '../configuracion/faq-component/faq-component.component';
 
 const routes: Routes = [
   {path:'',
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path: 'obrero/:busqueda', component: BusquedaObreroComponentComponent},
     {path: 'problema/:id_problema', component: ProblemaComponentComponent},
     {path: 'configuracion', component: ConfiguracionComponentComponent},
+    {path: 'help', component: FAQComponentComponent},
     {path: '', redirectTo: 'login', pathMatch: 'full'},
   ],
 }

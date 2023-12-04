@@ -1,0 +1,17 @@
+<h1>Preguntas frecuentes</h1>
+<div class="faq-container">
+    <div class="faq" *ngFor="let faq of faqs" [ngClass]="{'active': faq.active}">
+        <h3 class="faq-title">
+            {{ faq.question }}
+        </h3>
+
+        <p class="faq-text">
+            {{ faq.answer }}
+        </p>
+
+        <button mat-icon-button class="faq-toggle" (click)="toggleFaq(faq)">
+            <mat-icon *ngIf="!faq.active">keyboard_arrow_down</mat-icon>
+            <mat-icon *ngIf="faq.active">close</mat-icon>
+        </button>
+    </div>
+</div>

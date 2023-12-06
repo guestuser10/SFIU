@@ -7,10 +7,35 @@
             <mat-icon>note_add</mat-icon>
         </button>
     </div>
-    
-    
-    
+
     <mat-card-content>
+        <mat-expansion-panel  class="panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title style="font-weight: bold;">
+                    datos personales
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="form-field-container" style="display: flex; flex-direction: column; margin: auto auto;">
+                <h3 style="color: gray; text-align: left; font-weight: bold;">Telefono: {{datospersonales[0].telefono}}</h3>
+                <h3 style="color: gray; text-align: left; font-weight: bold;">Dirección: {{datospersonales[0].direccion}}</h3>
+                <div class="checkbox-container">
+                    <h3 style="color: gray; text-align: left; font-weight: bold;">Días disp</h3>
+                    <div class="checkbox-group">
+                        <mat-checkbox id="lunes" name="dias_disp" [(ngModel)]="diasDisp[0]" [disabled]="true">L</mat-checkbox>
+                        <mat-checkbox id="martes" name="dias_disp" [(ngModel)]="diasDisp[1]" [disabled]="true">M</mat-checkbox>
+                        <mat-checkbox id="miercoles" name="dias_disp" [(ngModel)]="diasDisp[2]" [disabled]="true">M</mat-checkbox>
+                        <mat-checkbox id="jueves" name="dias_disp" [(ngModel)]="diasDisp[3]" [disabled]="true">J</mat-checkbox>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <mat-checkbox id="viernes" name="dias_disp" [(ngModel)]="diasDisp[4]" [disabled]="true">V</mat-checkbox>
+                        <mat-checkbox id="sabado" name="dias_disp" [(ngModel)]="diasDisp[5]" [disabled]="true">S</mat-checkbox>
+                        <mat-checkbox id="domingo" name="dias_disp" [(ngModel)]="diasDisp[6]" [disabled]="true">D</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+
         <mat-expansion-panel *ngFor="let problema of problemas" class="panel">
             <mat-expansion-panel-header>
                 <mat-panel-title>

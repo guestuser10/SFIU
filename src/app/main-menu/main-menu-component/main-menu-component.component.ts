@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { isThisWeek } from 'date-fns';
 import { env } from 'src/environments/environment';
+import { CookieService } from 'ngx-cookie-service';
 const apiUrl = env.apiUrl;
 
 @Component({
@@ -12,8 +13,12 @@ const apiUrl = env.apiUrl;
 })
 export class MainMenuComponentComponent implements OnInit {
   problemas: any[] = [];
-  gpo: number = 3;
-  constructor(private router: Router, private http: HttpClient) {}
+  gpo: string = '3';
+  constructor(
+    private router: Router, 
+    private http: HttpClient,
+    private cookieService: CookieService
+    ) {}
 
   esEstaSemana(fechaRevision: Date, hoy: Date): boolean {
     return isThisWeek(fechaRevision, { weekStartsOn: 1 }); // 1 para que la semana empiece en lunes
@@ -33,6 +38,8 @@ export class MainMenuComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.gpo = this.cookieService.get('groupId');
+
     this.http.get<any>(`http://127.0.0.1:8000/main_menu/${this.gpo}`).subscribe(
       response => {
         this.problemas = response.Problemas.map((problema: any) => {

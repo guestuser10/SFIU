@@ -22,7 +22,6 @@ export class AddGrupoDialogComponent {
       .subscribe(response => {
         console.log(response);
       });
-      location.reload();
   }
 
 }

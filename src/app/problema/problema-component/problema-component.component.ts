@@ -175,10 +175,10 @@ export class ProblemaComponentComponent implements OnInit {
       response => {
         if(estadoId === 2){
           this.openResueltoDialog();
-          return location.reload();;
+          return this.ngOnInit();
         }
         this.openAbiertoDialog();
-        location.reload();       
+        this.ngOnInit();     
       },
       error => {
         console.error('Error al cambiar el estado', error);

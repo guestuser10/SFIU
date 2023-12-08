@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
-
+import { env } from 'src/environments/environment';
 @Component({
   selector: 'app-adduser-dialog',
   templateUrl: './adduser-dialog.component.html',
@@ -30,7 +30,7 @@ export class AdduserDialogComponent implements OnInit{
     }
   
     obtenerGrupos() {
-      this.http.post('http://127.0.0.1:8000/select_grupo', {}).subscribe(
+      this.http.post(`${env.apiUrl}/select_grupo`, {}).subscribe(
         (data: any) => {
           this.grupos = data.Grupos;
           console.log('Grupos cargados:', this.grupos);
@@ -43,7 +43,7 @@ export class AdduserDialogComponent implements OnInit{
   
     enviarFormulario() {
       this.nuevoCreyente.dias_disp = this.diasDisp.join("");
-      this.http.post('http://127.0.0.1:8000/create_Creyentes', this.nuevoCreyente)
+      this.http.post(`${env.apiUrl}/create_Creyentes`, this.nuevoCreyente)
         .subscribe(response => {
           console.log(response);
         });

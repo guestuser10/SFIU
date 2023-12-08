@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
+import { env } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-add-problema-dialog',
@@ -29,7 +31,7 @@ export class AddProblemaDialogComponent implements OnInit {
 
   enviarFormulario() {
     console.log(this.problema.id_creyente)
-    this.http.post('http://127.0.0.1:8000/create_problema', this.problema)
+    this.http.post(`${env.apiUrl}/create_problema`, this.problema)
       .subscribe(response => {
         console.log(response);
       });

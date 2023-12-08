@@ -27,7 +27,7 @@ export class BusquedaObreroComponentComponent implements OnInit { // Actualiza e
 
   buscarObreros(busqueda: string) {
     // Utiliza la URL proporcionada para realizar la búsqueda
-    const url = `http://127.0.0.1:8000/obreros/${busqueda}`;
+    const url = `${env.apiUrl}/obreros/${busqueda}`;
     console.log(url);
     this.http.get<ObreroResponse>(url).subscribe(
       response => {

@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddProblemaDialogComponent } from '../add-problema-dialog/add-problema-dialog.component';
 import { takeUntil, switchMap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { env } from 'src/environments/environment';
 
 @Component({
   selector: 'app-perfil-component',
@@ -31,7 +32,7 @@ export class PerfilComponentComponent implements OnInit, OnDestroy {
       switchMap(params => {
         const perfilId = params['id_creyente'];
 
-        return this.http.get<any>(`http://127.0.0.1:8000/perfil/${perfilId}`);
+        return this.http.get<any>(`${env.apiUrl}/perfil/${perfilId}`);
       })
     ).subscribe(
       response => {
@@ -65,7 +66,7 @@ export class PerfilComponentComponent implements OnInit, OnDestroy {
 
     this.AR.params.pipe(
       takeUntil(this.destroy$),
-      switchMap(params => this.http.get(`http://127.0.0.1:8000/search_Creyente/${params['id_creyente']}`))
+      switchMap(params => this.http.get(`${env.apiUrl}/search_Creyente/${params['id_creyente']}`))
     ).subscribe((data: any) => {
       if (data.Creyente) {
         this.datospersonales = [{

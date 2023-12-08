@@ -40,7 +40,7 @@ export class MainMenuComponentComponent implements OnInit {
   ngOnInit(): void {
     this.gpo = this.cookieService.get('groupId');
 
-    this.http.get<any>(`http://127.0.0.1:8000/main_menu/${this.gpo}`).subscribe(
+    this.http.get<any>(`${env.apiUrl}/main_menu/${this.gpo}`).subscribe(
       response => {
         this.problemas = response.Problemas.map((problema: any) => {
           return {

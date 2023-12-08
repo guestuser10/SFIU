@@ -29,7 +29,7 @@ export class BusquedaMiembroComponentComponent implements OnInit {
   }
 
   buscarMiembros() {
-    const url = `http://127.0.0.1:8000/miembros/${this.busqueda}`;
+    const url = `${env.apiUrl}/miembros/${this.busqueda}`;
     this.http.get<MiembroResponse>(url).subscribe(
       response => {
         if (response.Creyentes) {

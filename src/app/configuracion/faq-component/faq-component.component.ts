@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { env } from 'src/environments/environment';
 
 @Component({
   selector: 'app-faq-component',
@@ -16,7 +17,7 @@ export class FAQComponentComponent implements OnInit {
   }
 
   fetchFAQs() {
-    this.http.get<any>('http://127.0.0.1:8000/faq').subscribe(data => {
+    this.http.get<any>(`${env.apiUrl}/faq`).subscribe(data => {
       this.faqs = data.faq;
     });
   }

@@ -6,6 +6,8 @@ import { ResueltoDialogComponent } from '../resuelto-dialog/resuelto-dialog.comp
 import { AbiertoDialogComponent } from '../abierto-dialog/abierto-dialog.component';
 import { RevisionDialogComponent } from '../revision-dialog/revision-dialog.component';
 import { DatePipe } from '@angular/common';
+import { env } from 'src/environments/environment';
+
 @Component({
   selector: 'app-problema-component',
   templateUrl: './problema-component.component.html',
@@ -19,7 +21,7 @@ export class ProblemaComponentComponent implements OnInit {
 
   newMessage: string = "";
 
-  private baseUrl = 'http://127.0.0.1:8000';
+  private baseUrl = `${env.apiUrl}`;
 
   constructor(
     private http: HttpClient, 
@@ -32,7 +34,7 @@ export class ProblemaComponentComponent implements OnInit {
   ngOnInit(): void {
     var problemaid: string ;
     problemaid = this.AR.snapshot.params['id_problema'];
-    this.http.get<any>(`http://127.0.0.1:8000/conversacion/${problemaid}`).subscribe(
+    this.http.get<any>(`${env.apiUrl}/conversacion/${problemaid}`).subscribe(
       response => {
         if (response.problema) {
           this.problema = {
@@ -116,7 +118,7 @@ export class ProblemaComponentComponent implements OnInit {
     };
 
     // Assuming you have an endpoint for adding messages, replace 'your-api-endpoint' with the actual URL
-    this.http.post('http://127.0.0.1:8000/create_mensaje', newMessageObject).subscribe(
+    this.http.post(`${env.apiUrl}/create_mensaje`, newMessageObject).subscribe(
       response => {
         //refresh 
         this.ngOnInit();
